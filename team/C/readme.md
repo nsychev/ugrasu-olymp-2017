@@ -6,4 +6,5 @@
 
 Окончательный ответ — `(N**2 * (N-1)**2 * ... * (N-K+1)**2) / K!`.
 
+[Код на Pascal](https://github.com/nsychev/ugrasu-olymp-2017/blob/master/team/C/code.pas) (от Юлии Гайничиной с олимпиады)
 [Код на C++](https://github.com/nsychev/ugrasu-olymp-2017/blob/master/team/C/code.cpp) (написан после олимпиады)
