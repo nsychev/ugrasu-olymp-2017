@@ -1,27 +1,29 @@
+// Copyright (c) Nikita Sychev, 28.04.2017
+// Licensed by MIT
+
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    vector<long long> a(n);
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
-    sort(a.begin(), a.end());
-    int left = 0;
-    long long sum = 0, maxsum = 0;
-    for (int right = 0; right < n; ++right) {
-        sum += a[right];
-        while (right - left > 1 && a[left] + a[left + 1] < a[right]) {
-            sum -= a[left];
-            ++left;
-        }
-        if (sum > maxsum)
-            maxsum = sum;
+    int d, n;
+    cin >> d >> n;
+
+    int _a = 1, _b = 0, a = 0, b = 1, sa, sb;
+
+    for (int i = 3; i <= d; i++) {
+        sa = a + _a, sb = b + _b;
+        _a = a, _b = b;
+        a = sa, b = sb;
     }
-    cout << maxsum;
-    return 0;
+
+    for (int x = 1; x <= n; ++x) {
+        if ((n - a * x) % b > 0)
+            continue;
+        int y = (n - a * x) / b;
+        if (y >= 0 && y < x) {
+            cout << x << ' ' << y << endl;
+            return 0;
+        }
+    }
 }
